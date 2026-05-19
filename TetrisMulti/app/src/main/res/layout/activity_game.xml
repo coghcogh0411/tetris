@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:background="#1a1a2e">
 
-    <!-- 내 게임 보드 영역 -->
+    <!-- 내 게임 보드 -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -21,15 +21,61 @@
             android:text="점수: 0"
             android:textColor="#ffffff"
             android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"/>
 
-        <!-- 내 테트리스 보드 (커스텀 뷰 — 나중에 교체) -->
-        <View
+        <!-- ✅ 커스텀 뷰로 교체! -->
+        <com.ho.tetrismulti.view.TetrisBoardView
             android:id="@+id/myBoardView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#0f3460" />
+            android:layout_weight="1"/>
+
+        <!-- 조작 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnLeft"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="◀"
+                android:textSize="20sp"
+                android:backgroundTint="#0f3460"/>
+
+            <Button
+                android:id="@+id/btnRotate"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="🔄"
+                android:textSize="20sp"
+                android:backgroundTint="#e94560"
+                android:layout_marginHorizontal="4dp"/>
+
+            <Button
+                android:id="@+id/btnRight"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="▶"
+                android:textSize="20sp"
+                android:backgroundTint="#0f3460"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDown"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="▼ 빠르게"
+            android:textSize="18sp"
+            android:backgroundTint="#16213e"
+            android:layout_marginTop="4dp"/>
 
     </LinearLayout>
 
@@ -37,9 +83,9 @@
     <View
         android:layout_width="2dp"
         android:layout_height="match_parent"
-        android:background="#e94560" />
+        android:background="#e94560"/>
 
-    <!-- 상대방 게임 보드 영역 (멀티용) -->
+    <!-- 상대방 보드 (작게) -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -55,14 +101,13 @@
             android:text="상대: 0"
             android:textColor="#aaaaaa"
             android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"/>
 
-        <View
+        <com.ho.tetrismulti.view.TetrisBoardView
             android:id="@+id/opponentBoardView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#0a0a1a" />
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
